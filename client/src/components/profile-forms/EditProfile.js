@@ -26,6 +26,7 @@ const EditProfile = ({
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
+
   useEffect(() => {
     getCurrentProfile();
     setFormData({
@@ -45,15 +46,7 @@ const EditProfile = ({
     });
   }, [
     loading,
-    getCurrentProfile,
-    profile.company,
-    profile.website,
-    profile.location,
-    profile.status,
-    profile.skills,
-    profile.githubusername,
-    profile.bio,
-    profile.social
+    getCurrentProfile
   ]);
   const {
     company,
@@ -70,8 +63,9 @@ const EditProfile = ({
     instagram
   } = formData;
 
-  const onChange = e =>
+  const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
